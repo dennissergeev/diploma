@@ -2,14 +2,7 @@
 
 \documentclass[12pt,a4paper]{report}
 
-% 
-% Language
-%
-
-%
-% Paper size and margins
-%
-\input{packages}
+\input{globsettings}
 
 
 \begin{document}
@@ -17,11 +10,14 @@
 \include{title}
 \include{contents}
 
-
 \begin{equation}
 2\times 2=4,\label{main}
 \end{equation}
 
-\include{chapters/biblio}
+gkjs \ref{main}
+
+fgji \citep{ER89}
+
+\include{biblio}
 
 \end{document}
