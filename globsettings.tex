@@ -8,6 +8,12 @@
 \usepackage[english]{babel}
 
 %
+% Symbols
+%
+\usepackage{amssymb}
+\usepackage{MnSymbol}
+
+%
 % Paper size and margins
 %
 
@@ -17,5 +23,33 @@
 \usepackage{natbib}
 
 \bibliographystyle{plainnat}
+% Bibliography: set article volume number in bold font
+%\DeclareFieldFormat
+%  [article]
+%  {volume}{\textbf{#1}}
+%\renewcommand\nameyeardelim{, }
 
 \usepackage{showkeys} % show labels
+
+\newcommand{\figref}[1]{\mbox{Figure~\ref{#1}}}
+\newcommand{\tabref}[1]{\mbox{Table~\ref{#1}}}
+\newcommand{\secref}[1]{\mbox{Section~\ref{#1}}}
+\newcommand{\chpref}[1]{\mbox{Chapter~\ref{#1}}}
+\newcommand{\appref}[1]{\mbox{Appendix~\ref{#1}}}
+\newcommand{\eqnref}[1]{\mbox{Eq.~(\ref{#1})}}
+\newcommand{\listref}[1]{\mbox{Listing~(\ref{#1})}}
+
+%
+% Lists
+%
+\usepackage[shortlabels]{enumitem}
+
+\newenvironment{sqlist}[1][\enskip$\filledsquare$]
+        {\begin{itemize}[#1]}
+        {\end{itemize}}
+
+% New math commands
+% differential d, from http://tex.stackexchange.com/a/60546/586
+\newcommand*\diff{\mathop{}\!\mathrm{d}}
+\newcommand\mean[1]{\overline{#1}}
+\newcommand{\PDt}[2]{\partial #1/\partial #2}

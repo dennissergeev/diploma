@@ -1,0 +1,76 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\documentclass[a4paper,landscape, 6pt]{article}
+\usepackage[landscape]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage[T2A]{fontenc}
+\usepackage[english]{babel}
+\usepackage{amssymb,latexsym,amsmath,amscd,MnSymbol}
+\usepackage[shortlabels]{enumitem}
+\usepackage{mmap}
+\usepackage{cool}
+\usepackage{graphicx}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Indenting throughout entire document %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{indentfirst}
+\setlength{\parindent}{1cm}
+\setlength{\parskip}{0.5cm}
+\sloppy
+% Page properties
+\newgeometry{margin=1cm}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Table formatting %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{longtable}
+\usepackage{tabularx}
+\usepackage{tabu}
+%\preto\longtabu{\setcounter{nrow}{0}}
+\newcounter{nrow}
+\setcounter{nrow}{0}
+\newcommand\irow{\stepcounter{nrow}\arabic{nrow}.\space}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% An itemize-style list with little space between items %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newenvironment{innerlist}[1][\enskip$\filledsquare$]
+{\begin{itemize}[#1,leftmargin=*,rightmargin=1mm,parsep=0pt,itemsep=0pt,topsep=0pt,partopsep=0pt]}
+ {\end{itemize}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\def\rotang{45}
+\newlength{\pblen}
+\setlength{\pblen}{2cm}
+
+\begin{document}
+%\begin{landscape}
+\begin{longtabu} to \linewidth{XXXXXXXXXXXX} %{p{1.2cm}p{1.5cm}p{2cm}p{3cm}p{3cm}p{1cm}p{1cm}p{1cm}p{1cm}p{\pblen}p{\pblen}p{2cm}}
+%\begin{longtable}[l]{|p{0.5cm}p{2cm}p{\pblen}p{9cm}|}
+\caption{Simulation grid} \\
+\toprule
+\rotatebox{\rotang}{\parbox{\pblen}{name}} & \rotatebox{\rotang}{\parbox{\pblen}{perturbation,\\ its location}} & \rotatebox{\rotang}{\parbox{\pblen}{vortex\\ parameters}} & \rotatebox{\rotang}{\parbox{\pblen}{reference\\ wind}} & \rotatebox{\rotang}{\parbox{\pblen}{reference\\ temperature}} & \rotatebox{\rotang}{\parbox{\pblen}{reference\\ relative\\ humidity}} & \rotatebox{\rotang}{\parbox{\pblen}{surface\\ temperature}} & \rotatebox{\rotang}{\parbox{\pblen}{heat and \\momentum fluxes}} & \rotatebox{\rotang}{\parbox{\pblen}{condensation}} & \rotatebox{\rotang}{\parbox{\pblen}{model grid\\ and domain\\ size}} & \rotatebox{\rotang}{\parbox{\pblen}{LBCs and\\ sponge zones}} & \rotatebox{\rotang}{\parbox{\pblen}{Remarks}}\\
+\midrule
+\irow  sim1 
+& Rankine vortex 
+& $V_{max}=7~ms^{-1}$; $RMS=20~km$ 
+& $u_{surf}=0$; $\pderiv{u}{z}=2\times10^{-3}~s^{-3}$ 
+& 1 K km-1 below 5 km above sea level, 10 km-1 above 5 km 
+& $0\%$ 
+& 270 K 
+& --- 
+& --- 
+& \begin{innerlist}
+ \item  $1000\times 1000\times 10.5 km$
+ \item  grid step: $10 km$
+ \item  30 vertical levels
+\end{innerlist} 
+& \begin{innerlist}
+ \item Periodic zonal BC
+ \item Rigid meridional BC
+ \item Rayleigh damping at the top
+ \item No lateral sponges 
+  \end{innerlist}
+& Diffusion? \\
+\bottomrule
+\label{table:energy_list}
+\end{longtabu}
+%\end{landscape}
+\end{document}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
