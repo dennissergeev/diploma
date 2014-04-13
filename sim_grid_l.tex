@@ -17,7 +17,7 @@
 \setlength{\parskip}{0.5cm}
 \sloppy
 % Page properties
-\newgeometry{margin=1cm}
+\newgeometry{margin=0.5cm}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Table formatting %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \usepackage{booktabs}
@@ -25,6 +25,14 @@
 \usepackage{longtable}
 \usepackage{tabularx}
 \usepackage{tabu}
+% Color columns
+\usepackage{color, colortbl}
+%\definecolor{name}{system}{definition}
+\definecolor{Gray}{gray}{0.9}
+\definecolor{DarkGray}{gray}{0.5}
+\definecolor{NearBlack}{gray}{0.1}
+%\definecolor{LightCyan}{rgb}{0.88,1,1}
+\newcolumntype{g}{>{\columncolor{Gray}}p}
 %\preto\longtabu{\setcounter{nrow}{0}}
 \newcounter{nrow}
 \setcounter{nrow}{0}
@@ -35,17 +43,105 @@
 {\begin{itemize}[#1,leftmargin=*,rightmargin=1mm,parsep=0pt,itemsep=0pt,topsep=0pt,partopsep=0pt]}
  {\end{itemize}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\def\rotang{45}
+\def\rotang{90}
 \newlength{\pblen}
-\setlength{\pblen}{2cm}
+\setlength{\pblen}{2.5cm}
 
 \begin{document}
 %\begin{landscape}
-\begin{longtabu} to \linewidth{XXXXXXXXXXXX} %{p{1.2cm}p{1.5cm}p{2cm}p{3cm}p{3cm}p{1cm}p{1cm}p{1cm}p{1cm}p{\pblen}p{\pblen}p{2cm}}
+\begin{longtabu} to \linewidth {g{1.2cm}p{1.5cm}g{2cm}p{1.cm}g{3cm}p{1.5cm}g{1cm}p{1.5cm}g{1cm}p{3cm}g{3cm}p{2cm}}%{XXXXXXXXXXXX}
 %\begin{longtable}[l]{|p{0.5cm}p{2cm}p{\pblen}p{9cm}|}
 \caption{Simulation grid} \\
 \toprule
-\rotatebox{\rotang}{\parbox{\pblen}{name}} & \rotatebox{\rotang}{\parbox{\pblen}{perturbation,\\ its location}} & \rotatebox{\rotang}{\parbox{\pblen}{vortex\\ parameters}} & \rotatebox{\rotang}{\parbox{\pblen}{reference\\ wind}} & \rotatebox{\rotang}{\parbox{\pblen}{reference\\ temperature}} & \rotatebox{\rotang}{\parbox{\pblen}{reference\\ relative\\ humidity}} & \rotatebox{\rotang}{\parbox{\pblen}{surface\\ temperature}} & \rotatebox{\rotang}{\parbox{\pblen}{heat and \\momentum fluxes}} & \rotatebox{\rotang}{\parbox{\pblen}{condensation}} & \rotatebox{\rotang}{\parbox{\pblen}{model grid\\ and domain\\ size}} & \rotatebox{\rotang}{\parbox{\pblen}{LBCs and\\ sponge zones}} & \rotatebox{\rotang}{\parbox{\pblen}{Remarks}}\\
+\rowfont{\bfseries}\rotatebox{\rotang}{\parbox{\pblen}{name}} & \rotatebox{\rotang}{\parbox{\pblen}{perturbation,\\ its location}} & \rotatebox{\rotang}{\parbox{\pblen}{perturbation\\ parameters}} & \rotatebox{\rotang}{\parbox{\pblen}{reference\\ wind}} & \rotatebox{\rotang}{\parbox{\pblen}{reference\\ temperature}} & \rotatebox{\rotang}{\parbox{\pblen}{reference\\ relative\\ humidity}} & \rotatebox{\rotang}{\parbox{\pblen}{surface\\ temperature}} & \rotatebox{\rotang}{\parbox{\pblen}{heat and \\momentum fluxes}} & \rotatebox{\rotang}{\parbox{\pblen}{condensation}} & \rotatebox{\rotang}{\parbox{\pblen}{model grid\\ and domain\\ size}} & \rotatebox{\rotang}{\parbox{\pblen}{LBCs and\\ sponge zones}} & \rotatebox{\rotang}{\parbox{\pblen}{Remarks}} \\
+\midrule
+\irow  rest-pta-rh80-Ta251-lake-pbl2
+& $\theta$ positive anomaly 
+& $\theta'_{max}=5~K$; $r=50~km$; $h=1000~m$
+& $u=0$; $v=0$ 
+& $\theta_{surf}=251~K$; $\pderiv{\theta}{z}=2~K/1000~m$
+& From $80\%$ at the surface to $0\%$ at the top
+& 283 K 
+& Louis, 1979
+& --- 
+& \begin{innerlist}
+ \item  $380\times 380\times 10.5 km$
+ \item  grid step: $10 km$
+ \item  30 vertical levels
+\end{innerlist} 
+& \begin{innerlist}
+ \item Zonal: periodic
+ \item Meridional: radiative
+ \item Rayleigh damping at the top
+  \end{innerlist}
+& RH exceeds 100\% \\
+
+\midrule
+\irow  rest-pta-rh80-lake-pbl2
+& $\theta$ positive anomaly 
+& $\theta'_{max}=5~K$; $r=50~km$; $h=1000~m$
+& $u=0$; $v=0$ 
+& $\theta_{surf}=271~K$; $\pderiv{\theta}{z}=2~K/1000~m$
+& From $80\%$ at the surface to $0\%$ at the top
+& 283 K 
+& Louis, 1979
+& --- 
+& \begin{innerlist}
+ \item  $380\times 380\times 10.5 km$
+ \item  grid step: $10 km$
+ \item  30 vertical levels
+\end{innerlist} 
+& \begin{innerlist}
+ \item Zonal: periodic
+ \item Meridional: radiative
+ \item Rayleigh damping at the top
+  \end{innerlist}
+& RH exceeds 100\% \\
+
+\midrule
+\irow  rest-pta-rh80-lake-pbl3
+& $\theta$ positive anomaly 
+& $\theta'_{max}=5~K$; $r=50~km$; $h=1000~m$
+& $u=0$; $v=0$ 
+& $\theta_{surf}=271~K$; $\pderiv{\theta}{z}=2~K/1000~m$
+& From $80\%$ at the surface to $0\%$ at the top
+& 283 K 
+& \textbf{FLAKE}
+& --- 
+& \begin{innerlist}
+ \item  $380\times 380\times 10.5 km$
+ \item  grid step: $10 km$
+ \item  30 vertical levels
+\end{innerlist} 
+& \begin{innerlist}
+ \item Zonal: periodic
+ \item Meridional: radiative
+ \item Rayleigh damping at the top
+  \end{innerlist}
+& RH exceeds 100\% \\
+
+\midrule
+\irow  rest-pta-rh80-Ta251-lake-pbl2
+& $\theta$ positive anomaly 
+& $\theta'_{max}=5~K$; $r=50~km$; $h=1000~m$
+& $u=0$; $v=0$ 
+& \textbf{$\theta_{surf}=251~K$}; $\pderiv{\theta}{z}=2~K/1000~m$
+& From $80\%$ at the surface to $0\%$ at the top
+& 283 K 
+& Louis, 1979
+& --- 
+& \begin{innerlist}
+ \item  $380\times 380\times 10.5 km$
+ \item  grid step: $10 km$
+ \item  30 vertical levels
+\end{innerlist} 
+& \begin{innerlist}
+ \item Zonal: periodic
+ \item Meridional: radiative
+ \item Rayleigh damping at the top
+  \end{innerlist}
+& RH exceeds 100\% \\
+
 \midrule
 \irow  sim1 
 & Rankine vortex 
@@ -62,10 +158,9 @@
  \item  30 vertical levels
 \end{innerlist} 
 & \begin{innerlist}
- \item Periodic zonal BC
- \item Rigid meridional BC
+ \item Zonal: periodic
+ \item Meridional: radiative
  \item Rayleigh damping at the top
- \item No lateral sponges 
   \end{innerlist}
 & Diffusion? \\
 \bottomrule
