@@ -1,0 +1,59 @@
+\documentclass{article}
+
+\usepackage{graphicx}
+\usepackage{lineno}
+\usepackage[utf8]{inputenc}
+\usepackage[russian]{babel}
+\usepackage{lscape}
+\usepackage{subfigure}
+
+\def\figsc{0.025}
+
+\newcommand {\PGCYR}[0] {\mbox{~ПгС~г.}^{-1}}
+
+\newcommand{\expdir}{/home/dennis/REMEDY/expresults/rest-pta-rh80-Ta251-lake-pbl2-spon100/}
+\newcommand{\hour}{03}
+
+
+\graphicspath{ {\expdir rot_z/} 
+               {\expdir vort_bud/} 
+               {\expdir vort_budget_hadv/} 
+               {\expdir vort_budget_vadv/}
+               {\expdir vort_budget_stretch/}
+               {\expdir vort_budget_tilt/}
+               {\expdir vort_budget_bc/} }
+
+\begin{document}
+\begin{figure}[ht]
+\centering
+\subfigure[Vorticity]{%
+\includegraphics[scale=\figsc]{{rot_z_z.x41-x61.y41-y61.ilev02.\hour 0000}.jpg}
+\label{fig: }}
+\quad
+\subfigure[Vorticity tendency]{%
+\includegraphics[scale=\figsc]{{vort_bud_z.x41-x61.y41-y61.ilev02.\hour 0000}.jpg}
+\label{fig: }}
+\quad
+\subfigure[Horizontal advection]{%
+\includegraphics[scale=\figsc]{{vort_budget_hadv_z.x41-x61.y41-y61.ilev02.\hour 0000}.jpg}
+\label{fig: }}
+\quad
+\subfigure[Vertical advection]{%
+\includegraphics[scale=\figsc]{{vort_budget_vadv_z.x41-x61.y41-y61.ilev02.\hour 0000}.jpg}
+\label{fig: }}
+\subfigure[Stretching]{%
+\includegraphics[scale=\figsc]{{vort_budget_stretch_z.x41-x61.y41-y61.ilev02.\hour 0000}.jpg}
+\label{fig: }}
+\quad
+\subfigure[Tilting]{%
+\includegraphics[scale=\figsc]{{vort_budget_tilt_z.x41-x61.y41-y61.ilev02.\hour 0000}.jpg}
+\label{fig: }}
+\quad
+\subfigure[Baroclinic]{%
+\includegraphics[scale=\figsc]{{vort_budget_bc_z.x41-x61.y41-y61.ilev02.\hour 0000}.jpg}
+\label{fig: }}
+\caption{Spatial distribution of vorticity, $s^{-1}$, (a), vorticity tendency, $s^{-2}$, (b)
+ and vorticity budget terms, $s^{-2}$, (c-g) in the lowest 1000 m (03h)}
+
+\end{figure}
+\end{document}
