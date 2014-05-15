@@ -11,6 +11,12 @@
 \usepackage[english,russian]{babel}
 \usepackage{mmap}
 
+%
+% Colors
+%
+\usepackage[usenames]{color}
+\usepackage{color}
+\usepackage{colortbl}
 
 %
 % Symbols
@@ -23,6 +29,13 @@
 %
 %\usepackage[binary-units=true]{siunitx}
 \newcommand{\km}{\mathrm{~\text{км}}}
+\newcommand{\m}{\mathrm{~\text{м}}}
+\newcommand{\s}{\mathrm{~\text{с}}}
+\newcommand{\mps}{\m \s ^{-1}}
+\newcommand{\pers}{\s ^{-1}}
+\newcommand{\K}{\mathrm{~\text{К}}}
+\newcommand{\Kpkm}{\K\km ^{-1}}
+\newcommand{\hpa}{\mathrm{~\text{гПа}}}
 
 %
 % Paper size margins
@@ -37,7 +50,6 @@
 \setlength{\parindent}{1cm}
 \setlength{\parskip}{0.5cm}
 
-
 %
 % References
 %
@@ -47,6 +59,13 @@
 % Hyperlinks
 %
 \usepackage[linktocpage=true,plainpages=false,pdfpagelabels=false]{hyperref}
+\definecolor{linkcolor}{rgb}{0.1,0,0.9}
+\definecolor{citecolor}{rgb}{0,0,0.9}
+\definecolor{urlcolor}{rgb}{0,0,1}
+\hypersetup{
+    colorlinks, linkcolor={linkcolor},
+    citecolor={citecolor}, urlcolor={urlcolor}
+}
 
 \bibliographystyle{plainnat}
 % Bibliography: set article volume number in bold font
@@ -55,7 +74,7 @@
 %  {volume}{\textbf{#1}}
 %\renewcommand\nameyeardelim{, }
 
-\usepackage{showkeys} % show labels
+%\usepackage{showkeys} % show labels
 
 \newcommand{\figref}[1]{\mbox{Figure~\ref{#1}}}
 \newcommand{\tabref}[1]{\mbox{Table~\ref{#1}}}
@@ -79,6 +98,11 @@
 \newcommand*\diff{\mathop{}\!\mathrm{d}}
 \newcommand\mean[1]{\overline{#1}}
 \newcommand{\PDt}[2]{\partial #1/\partial #2}
+
+%
+% Tables
+%
+\usepackage{booktabs}
 
 %
 % Figures
