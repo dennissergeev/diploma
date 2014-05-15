@@ -3,9 +3,14 @@
 %
 
 % 
-% Language
+% Language and encoding
 %
-\usepackage[english]{babel}
+%\usepackage{mathtext}
+%\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[english,russian]{babel}
+\usepackage{mmap}
+
 
 %
 % Symbols
@@ -14,13 +19,34 @@
 \usepackage{MnSymbol}
 
 %
-% Paper size and margins
+% Units
 %
+%\usepackage[binary-units=true]{siunitx}
+\newcommand{\km}{\mathrm{~\text{км}}}
+
+%
+% Paper size margins
+%
+\usepackage{vmargin}
+\setmarginsrb{2.5cm}{2cm}{2.5cm}{2cm}{0cm}{0cm}{0cm}{1.5cm}
+
+%
+% Indenting
+%
+\usepackage{indentfirst}
+\setlength{\parindent}{1cm}
+\setlength{\parskip}{0.5cm}
+
 
 %
 % References
 %
 \usepackage{natbib}
+
+%
+% Hyperlinks
+%
+\usepackage[linktocpage=true,plainpages=false,pdfpagelabels=false]{hyperref}
 
 \bibliographystyle{plainnat}
 % Bibliography: set article volume number in bold font
@@ -53,3 +79,9 @@
 \newcommand*\diff{\mathop{}\!\mathrm{d}}
 \newcommand\mean[1]{\overline{#1}}
 \newcommand{\PDt}[2]{\partial #1/\partial #2}
+
+%
+% Figures
+%
+\usepackage{tikz}
+\usepackage{pgfplots}
