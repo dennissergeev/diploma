@@ -1,0 +1,22 @@
+\documentclass[12pt,a4paper]{report}
+
+\input{globsettings}
+
+\begin{document}
+
+\pgfplotstableread{Sslp_min_N.00h-73h.REST-PTA-RH80.-bf0032-.-bf0040-.-bf0060-.-bf0070-.dat}\mydata
+
+\pgfplotsset{%
+  compat=1.8,
+  grid style={very thin,dashed,black!20},every non boxed x axis/.append style={x axis line style=-},
+     every non boxed y axis/.append style={y axis line style=-}} 
+
+\begin{tikzpicture}
+\begin{axis}[only marks, grid,
+axis x line=top, axis y line=left,
+ylabel=Intensity, xlabel=Parameter]
+\addplot[color=red,mark=square*] table[x=P,y=I] {\mydata};
+\end{axis}
+\end{tikzpicture}
+
+\end{document}
