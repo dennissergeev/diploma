@@ -38,10 +38,25 @@
 \newcommand{\hpa}{\mathrm{~\text{гПа}}}
 
 %
-% Paper size margins
+% Paper size and margins
 %
 \usepackage{vmargin}
-\setmarginsrb{2.5cm}{2cm}{2.5cm}{2cm}{0cm}{0cm}{0cm}{1.5cm}
+\setmarginsrb{2.5cm}{1cm}{2.5cm}{2cm}{0cm}{0cm}{0cm}{1.5cm}
+
+%
+% Page style
+%
+\usepackage{fancyhdr}
+\setlength{\headheight}{16pt}
+\newcommand{\changefont}{%
+    \fontsize{9}{11}\selectfont
+}
+\fancyhf{}
+\fancyhead[LE,RO]{\changefont \slshape \rightmark} %section
+\fancyhead[RE,LO]{\changefont \slshape \leftmark} %chapter
+\fancyfoot[C]{\changefont \thepage} %footer
+\setlength{\headsep}{0.2in}
+\pagestyle{fancy}
 
 %
 % Indenting
@@ -105,6 +120,7 @@
 \usepackage{booktabs}
 %\usepackage{tabularx}
 \usepackage{tabu}
+\usepackage{longtable}
 
 %
 % Figures
