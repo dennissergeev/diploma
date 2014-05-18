@@ -144,6 +144,7 @@ $$\sigma: \sigma_0, \dots, \sigma_k,\dots,\sigma_{N_s},$$
 В действительности атмосфера в районах зарождения полярных мезоциклонов редко находится в состоянии близким к покою. Так, данные наблюдений \citep{ForbesLottes1985} свидетельствуют о том, что в среднем скорость ветра в слое $1000-500\hpa$ для случаев развивающихся вихрей составляет $7.1 \pm 4.3\mps$. Влияние скорости фонового потока на структуру вихря было рассмотрено на примере серии экспериментов, где ветер представлялся в виде зонального потока со скоростью $2-10\mps$. Так как при этом ветер не имел горизонтальных или вертикальных сдвигов, нельзя ожидать, что источником энергии для вихря будет баротропная или бароклинная неустойчивость атмосферы. Иными словами, можно предположить, что при наличии фонового потока поменяется лишь пространственная структура вихря из-за вклада адвективных слагаемых.
 
 \subsubsection{Чувствительность к потокам тепла на поверхности}
+\label{sec:exp:surfpar}
 Для лучшего понимания вклада потоков тепла и количества движения были поставлены дополнительные эксперименты. При этом потоки тепла либо отключались вовсе, либо искусственно модулировались при неизменных прочих условиях. 
 Известно, что существует положительная обратная связь между величиной потока тепла и интенсивностью вихря, а именно скорости ветра в нем. Данный механизм играет значительную роль в тех вихрях, которые имеют конвективную природу и развиваются благодаря WISHE. Другой механизм, предложенный  для частичного объяснения природы полярных мезоциклонов -- CISK -- существенно зависит от работы силы трения, то есть от потока импульса с поверхности. Тот или другой механизм может доминировать в разных полярных вихрях, и необходимо было выяснить, какой из них наиболее важен в наших экспериментах. Этого можно добиться, по отдельности изменяя коэффициенты турбулентного обмена, стоящие в параметризациях потока тепла и потока импульса на поверхности. В проведенных экспериментах эти коэффициенты уменьшались или увеличивались на $20-50\%$.
 
@@ -270,9 +271,9 @@ p_*\frac{DE_k}{Dt}&=-p_*u \pderiv{\phi'}{x}-p_*v \pderiv{\phi'}{y}+\sigma u \pde
 &+p_*g\tilde{w}\frac{\theta'}{\theta_S}+fp_*(vU_g-uV_g) + \mathcal{D}_{u,v,w}, \label{eq:ek4}
 \end{align}
 \end{subequations}
-где $\mathcal{D}_{u,v,w}$ обозначает сумму слагаемых, ответственных за турбулентную диффузию, пространственные и временные фильтры, приводящие к диссипации КЭ.
+где $\mathcal{D}_{u,v,w}$ обозначает сумму слагаемых, ответственных за турбулентную вязкость, пространственные и временные фильтры, приводящие к диссипации КЭ.
 
-Первые пять слагаемых в правой части (\ref{eq:ek4}) могут быть переписаны в более удобной форме:
+Первые пять слагаемых в правой части (\ref{eq:ek4}) могут быть переписаны в более удобной форме (компоненты геострофической скорости опущены):
 \begin{align}
   &-p_*u \pderiv{\phi'}{x}-p_*v \pderiv{\phi'}{y}+\sigma u \pderiv{p_*}{x}\pderiv{\phi'}{\sigma}+\sigma v \pderiv{p_*}{y}\pderiv{\phi'}{\sigma}+S_vp_*\tilde{w}\pderiv{\phi'}{\sigma}= \nonumber \\
 =&-p_*u \pderiv{\phi'}{x}-p_*v \pderiv{\phi'}{y}+\sigma\pderiv{\phi'}{\sigma}\left(u\pderiv{p_*}{x}+ v\pderiv{p_*}{y}\right)-(p_*\dot{\sigma}+\sigma\dot{p_*})\pderiv{\phi'}{\sigma}= \nonumber \\
@@ -301,7 +302,7 @@ p_*\frac{DE_k}{Dt}&=-\pderiv{p_*u\phi'}{x}-\pderiv{p_*v\phi'}{y}-\pderiv{p_*\dot
 \frac{1}{2}p_*\frac{D\theta'^2}{Dt}&=S_v\tilde{w}p_*\theta'\frac{\partial{\theta_s}}{\partial{\sigma}}+p_*\theta'Q+p_*\theta'(D_{\theta}+R_{\theta}) \label{eq:th2}.
 \end{align}
 
-Как было показано в предыдущем разделе, ДПЭ пропорциональна отклонению потенциальной температуры от фонового состояния, деленной на статическую устойчивость. В системе координат модели ReMeDy статическая устойчивость, или квадрат частоты Брента-Вяйсяля, записывается следующим образом 
+Как было показано в предыдущем разделе, ДПЭ пропорциональна квадрату отклонения потенциальной температуры от фонового состояния, деленной на статическую устойчивость. В системе координат модели ReMeDy статическая устойчивость, или квадрат частоты Брента-Вяйсяля, записывается следующим образом 
 \begin{equation}
 N^2=-S_v\frac{g}{\theta_s}\frac{\partial\theta_s}{\partial\sigma}. \label{eq:bfreq}
 \end{equation}
@@ -311,7 +312,7 @@ N^2=-S_v\frac{g}{\theta_s}\frac{\partial\theta_s}{\partial\sigma}. \label{eq:bfr
 \begin{align}
 \frac{1}{2}p_*B^2\frac{D\theta'^2}{Dt}&=-gp_*\tilde{w}\frac{\theta'}{\theta_s}+p_*\theta'B^2Q+p_*\theta'B^2(D_{\theta}+R_{\theta})
 \intertext{где}
-B^2&=\left(\frac{g}{\theta_s}\right)^2N^{-2}=-\frac{g/\theta_s}{S_v \partial\theta_s/\partial\sigma}\approx\frac{g/\theta_s}{ \partial\theta_s/\partial{z}} \label{eq:B2}.
+B^2&=\left(\frac{g}{\theta_s}\right)^2N^{-2}=-\frac{g/\theta_s}{S_v \partial\theta_s/\partial\sigma}=\frac{g/\theta_s}{ \partial\theta_s/\partial{z}} \label{eq:B2}.
 \end{align}
 \end{subequations}
 
@@ -320,7 +321,7 @@ B^2&=\left(\frac{g}{\theta_s}\right)^2N^{-2}=-\frac{g/\theta_s}{S_v \partial\the
 \frac{1}{2}p_*\frac{D\theta'^2B^2}{Dt}&=\frac{1}{2}\left(\frac{\partial{p_*\theta'^2B^2}}{\partial{t}}+\frac{\partial{p_*u\theta'^2B^2}}{\partial{x}}+\frac{\partial{p_*v\theta'^2B^2}}{\partial{y}}+\frac{\partial{p_*\dot{\sigma}\theta'^2B^2}}{\partial{\sigma}}\right)= \nonumber\\ 
 &=-gp_*\tilde{w}\frac{\theta'}{\theta_s}+\frac{1}{2}p_*\theta'^2\frac{DB^2}{Dt}+p_*\theta'B^2Q+p_*\theta'B^2(\mathcal{D}_{\theta}+R_{\theta}) \label{eq:apetend}
 \end{align}
-где $\theta'^2B^2$ может быть интерпретировано как ДПЭ на единицу массы. Под знаком полной производной находится выражение, которое с точностью до некоторого множителя есть доступная потенциальная энергия. Если сравнить (\ref{eq:ektend}) и (\ref{eq:ektend}), становится видно, что слагаемое $gp_*\tilde{w}\frac{\theta'}{\theta_s}$, которое присутствует в обоих уравнениях, но с разными знаками, можно интерпретировать как переход энергии из доступной потенциальной в кинетическую и обратно.
+где $\theta'^2B^2$ может быть интерпретировано как ДПЭ на единицу массы. Под знаком полной производной находится выражение, которое есть доступная потенциальная энергия. Если сравнить (\ref{eq:ektend}) и (\ref{eq:apetend2}), становится видно, что слагаемое $gp_*\tilde{w}\frac{\theta'}{\theta_s}$, которое присутствует в обоих уравнениях, но с разными знаками, можно интерпретировать как переход энергии из доступной потенциальной в кинетическую и обратно.
 
 Согласно (\ref{eq:B2}), параметр $B^2$ зависит только от вертикальной координаты. Следовательно, полная производная, входящая во второе слагаемое в правой части уравнения (\ref{eq:apetend}), после нескольких преобразований превращается в следующее выражение
 \begin{align}
@@ -328,12 +329,12 @@ B^2&=\left(\frac{g}{\theta_s}\right)^2N^{-2}=-\frac{g/\theta_s}{S_v \partial\the
 \end{align}
 Отметим, что если фоновое изменение потенциальной температуры задано линейной функцией, то вычитаемое, стоящее в скобках (\ref{eq:dB2}), становится равным нулю. В данной работе профиль $\theta_s$ являлся именно линейным, так что 
 \begin{equation}
-B^2-\frac{g\tilde{w}}{\theta_s^2}\left(\frac{\partial\theta_s}{\partial{z}}\right)^{-1}
+B^2=-\frac{g\tilde{w}}{\theta_s^2}\left(\frac{\partial\theta_s}{\partial{z}}\right)^{-1}
 \end{equation}
 Значит, тенденцию ДПЭ на единицу массы, $E_a=\frac{1}{2}\theta'^2B^2$, можно переписать в виде
 \begin{align}
-\frac{\partial p_*E_a}{\partial{t}}&=-\frac{\partial{p_*uE_a}}{\partial{x}}-\frac{\partial{p_*vE_a}}{\partial{y}}-\frac{\partial{p_*\dot{\sigma}E_a}}{\partial{\sigma}}= \nonumber\\ 
-&=-gp_*\tilde{w}\frac{\theta'}{\theta_s}-\frac{1}{2}gp_*\tilde{w}\left(\frac{\theta'}{\theta_s}\right)^2\left(\frac{\partial\theta_s}{\partial{z}}\right)^{-1}p_*\theta'B^2Q+\mathcal{D}_\theta \label{eq:apetend2}.
+\frac{\partial p_*E_a}{\partial{t}}&=-\frac{\partial{p_*uE_a}}{\partial{x}}-\frac{\partial{p_*vE_a}}{\partial{y}}-\frac{\partial{p_*\dot{\sigma}E_a}}{\partial{\sigma}} \nonumber\\ 
+&=-gp_*\tilde{w}\frac{\theta'}{\theta_s}-\frac{1}{2}gp_*\tilde{w}\left(\frac{\theta'}{\theta_s}\right)^2\left(\frac{\partial\theta_s}{\partial{z}}\right)^{-1}p_*\theta'B^2(Q+\mathcal{D}_\theta) \label{eq:apetend2}.
 \end{align} %%+gp_*\frac{\theta'}{\theta_s}\frac{1}{ \partial\theta_s/\partial{z}}\frac{L_v}{c_p}\left(\frac{p_0}{p}\right)^{R_d/c_p}(C-E)
 
 Доступная потенциальная энергия, как было показано в разделе \ref{sec:APEtheory}, есть интегральная величина. Принимая во внимание верхнее и нижнее граничные условия ($\dot{\sigma}_{\sigma=0,1}=0$), получаем интегральную форму уравнений (\ref{eq:apetend2} и \ref{eq:ektend}). Так, изменение полной (интегральной) кинетической энергии $K=\frac{1}{g}\iiint\limits_V p_*E_k dxdyd\sigma$ во времени равно:
@@ -343,15 +344,16 @@ B^2-\frac{g\tilde{w}}{\theta_s^2}\left(\frac{\partial\theta_s}{\partial{z}}\righ
 а изменение ДПЭ, $A=\frac{1}{g}\iiint\limits_V p_*E_a dxdyd\sigma$ равно:
 \begin{align} \label{eq:dAdt}
 \frac{d}{dt}A&=\frac{1}{g}\iint\left[(p_*uE_a)_{x=x_1}-(p_*uE_a)_{x=x_2}\right]dyd\sigma + \frac{1}{g}\iint\left[(p_*vE_a)_{y=y_1}-(p_*vE_a)_{y=y_2}\right]dxd\sigma - \nonumber\\ &- \iiint p_*\tilde{w}\frac{\theta^\prime}{\theta_s}dxdyd\sigma \nonumber\\
-&+ \frac{1}{2}\iiint p_*\tilde{w}\left(\frac{\theta^\prime}{\theta_s}\right)^2\left(\frac{\partial\theta_s}{\partial z}\right)^{-1}dxdyd\sigma+\frac{1}{g}\iiint p_*\theta'B^2Qdxdyd\sigma+\frac{1}{g}\iiint \mathcal{D}_{\theta}dxdyd\sigma.
+&+ \frac{1}{2}\iiint p_*\tilde{w}\left(\frac{\theta^\prime}{\theta_s}\right)^2\left(\frac{\partial\theta_s}{\partial z}\right)^{-1}dxdyd\sigma+\frac{1}{g}\iiint p_*\theta'B^2Qdxdyd\sigma+\frac{1}{g}\iiint p_*\theta'B^2\mathcal{D}_{\theta}dxdyd\sigma.
 \end{align} %+\iiint \left(p_*\frac{\theta'}{\theta_s}\frac{1}{ \partial\theta_s/\partial{z}}\frac{L_v}{c_p}\left(\frac{p_0}{p}\right)^{R_d/c_p}(C-E)\right) dxdyd\sigma
 
 \subsubsection{Потоки тепла с поверхности}
+\label{sec:expsetup:hsurf}
 Вернемся к выражению (\ref{eq:apetend}). Заметим, что первое слагаемое в скобках отвечает за подсеточное турбулентное перемешивание, и в модели определяется как (здесь для замыкания Смагоринского-Лилли):
 \begin{equation}
 \mathcal{D}_\theta=\pderiv{}{x_i}K_H \pderiv{\theta}{x_i},
 \end{equation}
-где использовано стандартное обозначение тензора, т.е. $x_i$ - три декартовы координаты, а $K_H$ - коэффициент теплообмена.
+где используется правило суммирования по повторяющимся индексам, т.е. $x_1=x, x_2=y, x_3=z$ - три декартовы координаты, а $K_H$ - коэффициент турбулентной теплопроводности.
 
 В численных экспериментах термическая диффузия обычно представлялась только вертикальной ее компонентой, так что для простоты следующие выкладки будут включать пространственные производные только для $\sigma$:
 \begin{equation}
@@ -359,10 +361,11 @@ B^2-\frac{g\tilde{w}}{\theta_s^2}\left(\frac{\partial\theta_s}{\partial{z}}\righ
 \end{equation}
 
 Интегрирование этого выражения по высоте и использование правила интегрирования по частям дает
-\begin{equation}
-\int_\sigma \theta'B^2S_v\pderiv{}{\sigma}\left(K_H S_v\pderiv{\theta}{\sigma}\right)d\sigma=\left(\theta'B^2S_v^2K_H \pderiv{\theta}{\sigma}\right)_{\sigma=0}-\left(\theta'B^2S_v^2K_H \pderiv{\theta}{\sigma}\right)_{\sigma=1}-\int_\sigma \pderiv{\theta'S_vB^2}{\sigma}S_vK_H\pderiv{\theta}{\sigma}d\sigma \label{eq:subgrid_mixing_theta}
-\end{equation}
-Первое слагаемое в правой части уравнения выше включает поток тепла на верхней границе области, который равен нулю, в то время как второе слагаемое определяется нижним граничным условием, которое зависит от потока тепла с поверхности ($H_{surf}=-K_H S_v\pderiv{\theta}{\sigma}c_p\rho\left(\frac{p}{p_0}\right)^{\kappa}$). Последний член в (\ref{eq:subgrid_mixing_theta}) может быть интерпретирован как диссипация ДПЭ через вязкость:
+\begin{align}
+\int_\sigma p_*\theta'B^2S_v\pderiv{}{\sigma}\left(K_H S_v\pderiv{\theta}{\sigma}\right)d\sigma&=\left(p_*\theta'B^2S_v^2K_H \pderiv{\theta}{\sigma}\right)_{\sigma=0}-\left(p_*\theta'B^2S_v^2K_H \pderiv{\theta}{\sigma}\right)_{\sigma=1} \\ 
+&-\int_\sigma p_*\pderiv{\theta'S_vB^2}{\sigma}S_vK_H\pderiv{\theta}{\sigma}d\sigma \label{eq:subgrid_mixing_theta}
+\end{align}
+Первое слагаемое в правой части уравнения выше включает поток тепла на верхней границе области, который в силу граничных условий равен нулю, в то время как второе слагаемое определяется нижним граничным условием, которое зависит от потока тепла с поверхности ($H_{surf}=-K_H S_v\pderiv{\theta}{\sigma}c_p\rho\left(\frac{p}{p_0}\right)^{\kappa}$). Последний член в (\ref{eq:subgrid_mixing_theta}) может быть интерпретирован как диссипация ДПЭ через теплопроводность. В результате этих преобразований ур. \ref{eq:subgrid_mixing_theta} принимает вид:
 \begin{equation}
 \int_\sigma\theta'B^2\mathcal{D}_\theta d\sigma=\left(\theta'B^2S_v\right)_{\sigma=1}\frac{H_{surf}}{c_p\rho}\left(\frac{p_0}{p}\right)^{\kappa}-\int_\sigma \pderiv{\theta'S_vB^2}{\sigma}S_vK_H\pderiv{\theta}{\sigma}d\sigma \label{eq:subgrid_mixing_theta_fin}
 \end{equation}
