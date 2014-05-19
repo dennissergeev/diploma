@@ -9,12 +9,12 @@
 
 \def\figsc{0.03}
 
-%\newcommand{\expdir}{/home/dennis/REMEDY/expresults/rest-pta-rh80-Ta251-lake-pbl2-spon100/}
-\newcommand{\expdir}{/home/dennis/REMEDY/expresults/u4-pta-rh80-Ta251-lake-pbl2/}
-\newcommand{\hour}{38}
-\newcommand{\lev}{_p}
-%\newcommand{\midname}{.x41-x62.y41-y61.ilev02.}
-\newcommand{\midname}{.x1-x122.y11-y111.ilev02.}
+\newcommand{\expdir}{/home/dennis/REMEDY/expresults/rest-pta-rh80-Ta251-lake-pbl2-spon100/}
+%\newcommand{\expdir}{/home/dennis/REMEDY/expresults/u4-pta-rh80-Ta251-lake-pbl2/}
+\newcommand{\hour}{03}
+\newcommand{\lev}{_z}
+\newcommand{\midname}{.x41-x62.y41-y61.ilev02.}
+%\newcommand{\midname}{.x1-x122.y11-y111.ilev02.}
 
 
 \graphicspath{ {\expdir rot_z/} 
@@ -29,30 +29,30 @@
 \begin{figure}[ht]
 \centering
 \subfigure[Vorticity]{%
-\includegraphics[scale=\figsc]{{rot_z\lev\midname\hour 0000}.jpg}
+\includegraphics[width=0.3\textwidth]{{rot_z\lev\midname\hour 0000}.jpg}
 \label{fig: }}
-\quad
+\hfill
 \subfigure[Vorticity tendency]{%
-\includegraphics[scale=\figsc]{{vort_bud\lev\midname\hour 0000}.jpg}
+\includegraphics[width=0.3\textwidth]{{vort_bud\lev\midname\hour 0000}.jpg}
 \label{fig: }}
-\quad
+\hfill
 \subfigure[Horizontal advection]{%
-\includegraphics[scale=\figsc]{{vort_budget_hadv\lev\midname\hour 0000}.jpg}
+\includegraphics[width=0.3\textwidth]{{vort_budget_hadv\lev\midname\hour 0000}.jpg}
 \label{fig: }}
-\quad
+\hfill
 \subfigure[Vertical advection]{%
-\includegraphics[scale=\figsc]{{vort_budget_vadv\lev\midname\hour 0000}.jpg}
+\includegraphics[width=0.3\textwidth]{{vort_budget_vadv\lev\midname\hour 0000}.jpg}
 \label{fig: }}
 \subfigure[Stretching]{%
-\includegraphics[scale=\figsc]{{vort_budget_stretch\lev\midname\hour 0000}.jpg}
+\includegraphics[width=0.3\textwidth]{{vort_budget_stretch\lev\midname\hour 0000}.jpg}
 \label{fig: }}
-\quad
+\hfill
 \subfigure[Tilting]{%
-\includegraphics[scale=\figsc]{{vort_budget_tilt\lev\midname\hour 0000}.jpg}
+\includegraphics[width=0.3\textwidth]{{vort_budget_tilt\lev\midname\hour 0000}.jpg}
 \label{fig: }}
 %\quad
 %\subfigure[Baroclinic]{%
-%\includegraphics[scale=\figsc]{{vort_budget_bc\lev\midname\hour 0000}.jpg}
+%\includegraphics[width=0.3\textwidth]{{vort_budget_bc\lev\midname\hour 0000}.jpg}
 %\label{fig: }}
 \caption{Spatial distribution of vorticity, $s^{-1}$, (a), vorticity tendency, $s^{-2}$, (b)
  and vorticity budget terms, $s^{-2}$, (c-g) in the lowest 1000 m (03h)}
