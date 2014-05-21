@@ -1,0 +1,172 @@
+\appendix
+\chapter{Основные аппроксимации и вывод системы прогностических уравнений модели ReMeDy}
+\label{app:A}
+Начнем с рассмотрения системы уравнений гидродинамики в невязком адиабатическом приближении в $z$-системе координат на $f$-плоскости:
+
+\begin{subequations}\label{eq:eqn0}
+\begin{align}
+\frac{Du}{Dt}&=-\frac{1}{\rho}\pderiv{p}{x}+fv \label{eq:eqn1}\\
+\frac{Dv}{Dt}&=-\frac{1}{\rho}\pderiv{p}{y}-fu \label{eq:eqn2}\\
+\frac{Dw}{Dt}&=-\frac{1}{\rho}\pderiv{p}{z}-g \label{eq:eqn3}\\
+\pderiv{u}{x}+\pderiv{v}{x}+\pderiv{w}{x}&=-\frac{Dln\rho}{Dt} \label{eq:eqn4}\\
+\frac{Dln\theta}{Dt}&=0 \\
+\intertext{\text{и уравнение состояния}}
+p&=R\rho T, \label{eq:eqn5}\\
+\intertext{\text{а потенциальная температура определяется как}}
+\theta&=T\left(\frac{p_0}{p}\right)^\kappa. \label{eq:eqn6}
+\end{align}
+\end{subequations}
+
+Далее в качестве вертикальной координаты примем
+\begin{equation}
+\sigma=\frac{p-p_{top}}{p_*}, p_*=p_{surf}-p_{top},
+\end{equation}
+которая превращается в традиционную $\sigma$-координату при $p_{top}=0$. В последующих выкладках примем, что $p_{top}$ есть константа. Производные в $\sigma$-системе коодинат соотносятся с производными в $z$-координатах следующим образом:
+\begin{align}
+\begin{split}
+\left(\frac{\partial}{\partial x}\right)_z&=\left(\frac{\partial}{\partial x}\right)_{\sigma}-\left(\frac{\partial z}{\partial x}\right)_{\sigma} \left(\frac{\partial \sigma}{\partial z}\right) \left(\frac{\partial}{\partial \sigma}\right) \\
+\frac{\partial}{\partial z}&=\frac{\partial\sigma}{\partial z}\frac{\partial}{\partial \sigma}
+\end{split} \label{eq:z2sigma1}
+\end{align}
+
+Миллер и Уайт \citep{MillerWhite1984} получили систему уравнений в $p$-системе координат, применив ряд преобразований относительно связанного с фоновым состоянием параметром атмосферы, который имеет малые значения для широкого спектра атмосферных условий. Процедура может быть представлена в три этапа: \\
+\begin{enumerate}
+\item представление уравнений в новой системе координат, при это полагая $Dw/Dt$ параметром во всех уравнениях, кроме уравнения для вертикального ускорения;
+\item определение фонового состояния как состояния гидростатического равновесия, в котором переменные зависят только от давления;
+\item упрощение уравнений относительно фонового состояния с избавлением от членов высоких порядков.
+\end{enumerate}
+
+То есть фоновое состояние атмосферы определяется через переменные $$\phi_s(p), T_s(p)~or~\theta_s(p),$$
+при чем
+\begin{equation}
+\frac{\partial\phi_s}{\partial\sigma}=\frac{\partial\phi_s}{\partial p}\frac{\partial p}{\partial\sigma}=-\frac{RT_s}{p}p_*
+\end{equation}
+Далее, следуя \citep{MillerWhite1984}, введем параметр
+\begin{equation}
+\epsilon=\frac{1}{g}\frac{Dw}{Dt},
+\end{equation}
+который является отношением вертикального ускорения к ускорению силы гравитации. Тогда уравнение для вертикальной скорости \eqref{eq:eqn3} может быть решено относительно $1/\rho$:
+\begin{equation}
+\frac{1}{\rho}=-\frac{g(1+\epsilon)}{\frac{\partial p}{\partial z}} \label{eq:vol}
+\end{equation}
+
+Подставляя последнее выражение в уравнения для горизонтальных компонент скорости \eqref{eq:eqn1} и \eqref{eq:eqn2} и используя \eqref{eq:z2sigma1}, получаем:
+\begin{subequations}\label{eq:hmom0}
+\begin{align}
+\frac{Du}{Dt}&=\frac{g(1+\epsilon)}{\pderiv{p}{\sigma}\pderiv{\sigma}{z}}
+\left[
+\left(\pderiv{p}{x}\right)_\sigma-\pderiv{p}{\sigma}\pderiv{\sigma}{z}\left(\pderiv{z}{x}\right)_\sigma
+\right]
++fv=g(1+\epsilon)
+\left[\pderiv{\sigma}{p}\pderiv{z}{\sigma}\left(\pderiv{p}{x}\right)_\sigma-\left(\pderiv{z}{x}\right)_\sigma
+\right]+fv=\nonumber\\
+&=(1+\epsilon)
+\left[
+\frac{\sigma}{p_*}\left(\pderiv{p_*}{x}\right)_\sigma\pderiv{\phi}{\sigma}-\left(\pderiv{\phi}{x}\right)_\sigma
+\right]+fv \nonumber \\
+\intertext{or} \nonumber\\
+\frac{Du}{Dt}&=(1+\epsilon)
+\left[
+-\left(\pderiv{\phi'}{x}\right)_\sigma+\pderiv{\phi'}{\sigma}\frac{\sigma}{p_*}\left(\pderiv{p_*}{x}\right)_\sigma
+-\left(\pderiv{\phi_s}{x}\right)_\sigma+\pderiv{\phi_s}{\sigma}\frac{\sigma}{p_*}\left(\pderiv{p_*}{x}\right)_\sigma
+\right]+fv \nonumber\\
+\frac{Du}{Dt}&=(1+\epsilon)
+\left[
+-\left(\pderiv{\phi'}{x}\right)_\sigma+\pderiv{\phi'}{\sigma}\frac{\sigma}{p_*}\left(\pderiv{p_*}{x}\right)_\sigma
+\right]+fv\label{eq:hmom1}
+\intertext{and in a similar way:} \nonumber\\
+\frac{Dv}{Dt}&=(1+\epsilon)
+\left[
+-\left(\frac{\partial\phi'}{\partial y}\right)_\sigma+\frac{\partial\phi'}{\partial\sigma}\frac{\sigma}{p_*}\left(\frac{\partial p_*}{\partial y}\right)_\sigma
+\right]-fu\label{eq:hmom2}
+\end{align}
+\end{subequations}
+
+Рассмотрим уравнение для вертикальной скорости \eqref{eq:eqn3}. Оно может быть переписано в виде
+\begin{align}
+g(1+\epsilon)&=-\frac{1}{\rho}\pderiv{p}{z} \\
+\intertext{\text{или}} \nonumber\\
+g(1+\epsilon)&=-\frac{1}{\rho}p_*\pderiv{\sigma}{z} \nonumber\\
+(1+\epsilon)\left(\pderiv{\phi'}{\sigma}+\pderiv{\phi_s}{\sigma}\right)&=-\frac{1}{\rho}p_*\nonumber\\
+\intertext{or, using the hydrostatic relation for the reference state:} \nonumber \\
+(1+\epsilon)\left(\pderiv{\phi'}{\sigma}-p_*\frac{1}{\rho_s}\right)&=-\frac{1}{\rho}p_*\nonumber\\
+-\epsilon p_*\frac{1}{\rho_s}-p_*\frac{1}{\rho_s}+(1+\epsilon)\pderiv{\phi'}{\sigma}&=-\frac{1}{\rho}p_*\nonumber\\
+\epsilon p_*\frac{1}{\rho_s}&=(1+\epsilon)\pderiv{\phi'}{\sigma}+p_*\left(\frac{1}{\rho}-\frac{1}{\rho_s}\right)
+\end{align}
+Подставим $\epsilon$, согласно его определению, но только в первое слагаемое:
+\begin{align}
+\frac{Dw}{Dt}&=(1+\epsilon)\pderiv{\phi'}{\sigma}\frac{g\rho_s}{p_*}-g\frac{(\rho-\rho_s)}{\rho}\nonumber\\
+\intertext{\text{и при} $\frac{\rho'}{\rho_s+\rho'}\approx\frac{\rho'}{\rho_s}$} \nonumber\\
+\frac{Dw}{Dt}&=(1+\epsilon)\frac{g\rho_s}{p_*}\pderiv{\phi'}{\sigma}-g\frac{\rho'}{\rho_s} \label{eq:dwdt_rho}
+\end{align}
+Последнее слагаемое в правой части ур. \eqref{eq:dwdt_rho} может быть далее представлено как $g\frac{\theta'}{\theta_s}$.
+
+С другой стороны, по определению вертикальное ускорение выглядит как
+\begin{align}
+\frac{Dw}{Dt}&=\frac{1}{g}\frac{D}{Dt}\left(\frac{D\phi'}{Dt}+\frac{D\phi_s}{Dt}\right)
+\end{align}
+и
+\begin{align}
+\frac{D\phi_s}{Dt}&=\pderiv{\phi_s}{p}\frac{D\phi_s}{Dt}=-\frac{RT_s}{p}\omega=-\frac{\omega}{\rho_s}.
+\end{align}
+Используя последнее, запишем:
+\begin{align}
+\tilde{w}&=\frac{1}{g}\frac{D\phi_s}{Dt}=-\frac{\omega}{\rho_sg} \\
+\tilde{w}&=-\frac{1}{\rho_sg}\frac{Dp}{Dt}=-\frac{1}{S}(\dot{\sigma}+\frac{\sigma}{p_*}\dot{p_*}),
+\end{align}
+а окончательный вид уравнения для вертикальной скорости имеет вид
+\begin{equation}
+\frac{D}{Dt}\left[\frac{1}{g}\frac{D\phi'}{Dt}+\tilde{w}\right]=(1+\epsilon)S\pderiv{\phi'}{\sigma}+g\frac{\theta'}{\theta_s},
+\end{equation}
+где 
+\begin{equation}
+S=\frac{gp}{RT_sp_*}.
+\end{equation}
+Заметим, что 
+\begin{equation}
+-S\pderiv{}{\sigma}\approx\pderiv{}{z} \label{eq:dz}
+\end{equation}
+
+Преобразование уравнения неразрывности можно начать с рассмотрения уравнения, обобщенного на случай произвольной вертикальной координаты.
+\begin{equation}
+\frac{Dln\rho}{Dt}+\pderiv{u}{x}+\pderiv{v}{y}+\pderiv{\dot{\eta}}{\eta}+\frac{D}{Dt}\left(ln\left(\pderiv{z}{\eta}\right)\right)=0
+\end{equation}
+Имея в качестве вертикальной координаты $\sigma$-координату, получим уравнение неразрывности в системе координат модели:
+\begin{equation}
+\frac{Dln\rho}{Dt}+\frac{D}{Dt}\left(ln\left(\pderiv{z}{\sigma}\right)\right)+\pderiv{u}{x}+\pderiv{v}{y}+\pderiv{\dot{\sigma}}{\sigma}=0
+\end{equation}
+Используя опять уравнение \eqref{eq:vol}, переписанное в виде
+\begin{equation}
+\frac{D}{Dt}\left(ln\left(\pderiv{z}{\sigma}\right)\right)=\frac{Dlnp_*}{dt}-\frac{Dln\rho}{Dt}-\frac{Dln(1+\epsilon)}{Dt},
+\end{equation}
+получаем
+\begin{equation}
+\frac{Dlnp_*}{Dt}+\pderiv{u}{x}+\pderiv{v}{y}+\pderiv{\dot{\sigma}}{\sigma}=\frac{Dln(1+\epsilon)}{Dt}.
+\end{equation}
+
+Уравнение притока тепла может быть получено следующим образом. Сначала выпишем его в изобарических координатах:
+\begin{equation}
+\frac{D\theta}{Dt}=\frac{D\theta'}{Dt}+\frac{D\theta_s}{Dt}=\frac{D\theta'}{Dt}+\omega\pderiv{\theta_s}{p}=0.
+\end{equation}
+Далее, используя определение $\tilde{w}$ и свойства фонового состояния, получаем:
+\begin{equation}
+\frac{D\theta'}{Dt}-S\tilde{w}\pderiv{\theta_s}{\sigma}=0
+\end{equation}
+%which (neglecting the last term) can be written in a more familiar form, noting that:
+%\begin{equation}
+%-S\pderiv{}{\sigma}\approx\pderiv{}{z}
+%\end{equation}
+%and defining:
+%\begin{equation}
+%N^2=-S_v\frac{g}{\theta_s}\frac{\partial\theta_s}{\partial\sigma} \label{bfreq}
+%\end{equation}
+%leading to
+%\begin{equation}
+%\frac{g}{\theta_s}\frac{D\theta'}{Dt}+N^2\tilde{w}=0.
+%\end{equation}
+
+Система уравнений записана теперь в форме, удобной для упрощения, которое производится просто путем отбрасывания всех слагаемых, в которые входит параметр $\epsilon$ и величину $1/g\left(D^2\phi'/Dt^2\right)$. Миллер и Уайт обосновывают это приближение путем разложения членов уравнений в степенные ряды от малого параметра $\alpha$, зависящего лишь от фонового состояния. После чего отбрасываются члены высокого порядка и выводится система уравнений, подходящая для численного интегрирования. Условие, при котором описанная аппроксимация верна, следующее:
+\begin{equation}
+\alpha=\frac{\Delta\theta_s}{\theta_s}=\frac{p_0}{\theta_s}\pderiv{\theta_s}{p}\ll1,
+\end{equation}
+что всегда выполняется в тропосфере.
