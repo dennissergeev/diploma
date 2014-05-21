@@ -52,7 +52,7 @@
 \end{subequations}
 где $t$ --- время, $x$ --- горизонтальная координата, направленная на восток, $y$ --- горизонтальная координата, направленная на север, $\sigma$ --- вертикальная координата, $\sigma=\frac{p-p_{top}}{p_*}$, $p_*=p_{surf}-p_{top}$, $p$ --- атмосферное давление, $p_{surf}$ --- приземное давление, $p_{top}$ --- давление на верхней границе расчетной области, $u$ --- составляющая скорости вдоль оси $X$, $v$ - составляющая скорости вдоль оси $Y$, $\tilde{w}$ --- аппроксимация составляющей скорости вдоль $Z$, $\dot{\sigma}$ --- аналог вертикальной скорости в $\sigma$-координатах, $\phi'$ --- возмущение геопотенциала, $(U_g,V_g)$ --- вектор геострофического ветра, $f$ --- параметр Кориолиса, $\phi'$ --- отклонение геопотенциала, $\theta'$ --- отклонение потенциальной температуры, $S_v=\frac{gp}{R_dT_{vs}p_*}$, $Q=\frac{L_v}{c_p}\left(\frac{p_0}{p}\right)^{R_d/c_p}(C-E)$ --- неадиабатическое нагревание, $c_p$ --- удельная теплоемкость при постоянном давлении, $L_v$ --- удельная теплота конденсация, $p_0=1000\hpa$, $q_r$ --- удельное содержание дождевых капель, $q_v$ --- удельная влажность, $q_c$ --- удельное содержание облачных капель, $C$ --- скорость конденсации, $E$ --- скорость испарения, $A$ --- суммарная интенсивность захвата облачных капель осадками и автоконверсии, $V_r$ --- скорость падения дождевых капель, $D$ --- слагаемые, описывающие турбулентную диффузию соответствующих субстанций, $R$ --- дополнительные слагаемые, включающие, в частности, пространственные и временные фильтры в конечно-разностной схеме модели. Верхними штрихами обозначены отклонения величин от их фоновых значений. Фоновые значения зависят только от давления и обозначены нижним индексом $s$.
 
-Для замыкания системы уравнений используется диагностическое уравнение для возмущения геопотенциала $\phi'$. оно может быть получено путем некоторых преобразований из уравнений движения и уравнения неразрывности. В полном виде это уравнение приводится в \citep{MirandaPhD}.
+Для замыкания системы уравнений используется диагностическое уравнение для возмущения геопотенциала $\phi'$. Оно может быть получено путем некоторых преобразований из уравнений движения и уравнения неразрывности. В полном виде это уравнение приводится в \citep{MirandaPhD}.
 
 Входящие в последние три уравнения \eqref{eq:progn0} переходы атмосферной влаги из одного фазового состояния в другое описываются с помощью параметризаций микрофизических процессов. Для параметризации облачной микрофизики без учета твердой фазы используется схема Кесслера, а соответствующие модификации, включенные в модель ReMeDy, описаны в отчете \citep{TeixeiraMiranda1997}.
 
@@ -72,7 +72,7 @@ $$\sigma: \sigma_0, \dots, \sigma_k,\dots,\sigma_{N_s},$$
 \label{fig:modelgrid}
 \end{figure}
 
-В настоящее время модель ReMeDy имеет параллельную реализацию по технологии MPI \citep{StepanenkoMikushin2008}. Благодаря этому, время счета каждого экспериментов составляло в среднем около 2 часов при запуске на 16 процессорах суперкомпьютерного кластера МГУ 'Ломоносов' \citep{VoevodinEtAl2012}.
+В настоящее время модель ReMeDy имеет параллельную реализацию по технологии MPI \citep{StepanenkoMikushin2008}. Благодаря этому, время счета каждого эксперимента составляло в среднем около 2 часов при запуске на 16 процессорах суперкомпьютерного кластера МГУ 'Ломоносов' \citep{VoevodinEtAl2012}.
 
 \subsection{Параметризация подсеточного перемешивания}
 \label{sec:model:closure}
@@ -356,7 +356,8 @@ p_*\frac{DE_k}{Dt}&=-p_*u \pderiv{\phi'}{x}-p_*v \pderiv{\phi'}{y}+\sigma u \pde
 =&-p_*u \pderiv{\phi'}{x}-p_*v \pderiv{\phi'}{y}+\sigma\pderiv{\phi'}{\sigma}\left(u\pderiv{p_*}{x}+ v\pderiv{p_*}{y}\right)-(p_*\dot{\sigma}+\sigma\dot{p_*})\pderiv{\phi'}{\sigma}= \nonumber \\
 =&-p_*u \pderiv{\phi'}{x}-p_*v \pderiv{\phi'}{y}+\sigma\pderiv{\phi'}{\sigma}\left(u\pderiv{p_*}{x}+v\pderiv{p_*}{y}\right)-\sigma\pderiv{\phi'}{\sigma}\frac{Dp_*}{Dt}-p_*\dot{\sigma}\pderiv{\phi'}{\sigma}=\nonumber\\
 =&-p_*u \pderiv{\phi'}{x}-p_*v \pderiv{\phi'}{y}-\sigma\pderiv{\phi'}{\sigma}\pderiv{p_*}{t}-p_*\dot{\sigma}\pderiv{\phi'}{\sigma}=\nonumber\\
-=&-p_*u \pderiv{\phi'}{x}-p_*v \pderiv{\phi'}{y}-\phi'\left(u\pderiv{p_*}{x}+v\pderiv{p_*}{y}\right)-p_*\dot{\sigma}\pderiv{\phi'}{\sigma}+\phi'\left(u\pderiv{p_*}{x}+v\pderiv{p_*}{y}\right)+\phi'\pderiv{p_*}{t}-\phi'\pderiv{p_*}{t}-\sigma\pderiv{\phi'}{\sigma}\pderiv{p_*}{t}=\nonumber\\
+=&-p_*u \pderiv{\phi'}{x}-p_*v \pderiv{\phi'}{y}-\phi'\left(u\pderiv{p_*}{x}+v\pderiv{p_*}{y}\right)-p_*\dot{\sigma}\pderiv{\phi'}{\sigma}+\phi'\left(u\pderiv{p_*}{x}+v\pderiv{p_*}{y}\right)\\
++&\phi'\pderiv{p_*}{t}-\phi'\pderiv{p_*}{t}-\sigma\pderiv{\phi'}{\sigma}\pderiv{p_*}{t}=\nonumber\\
 =&-p_*u \pderiv{\phi'}{x}-p_*v \pderiv{\phi'}{y}-\phi'\left(u\pderiv{p_*}{x}+v\pderiv{p_*}{y}\right)-p_*\dot{\sigma}\pderiv{\phi'}{\sigma}+\phi'\frac{Dp_*}{Dt}-\phi'\pderiv{p_*}{t}-\sigma\pderiv{\phi'}{\sigma}\pderiv{p_*}{t}=\nonumber\\
 =&-u \pderiv{p_*\phi'}{x}-v \pderiv{p_*\phi'}{y}-p_*\dot{\sigma}\pderiv{\phi'}{\sigma}+\phi'\frac{Dp_*}{Dt}-\pderiv{p_*}{t}\pderiv{(\sigma\phi')}{\sigma}=\nonumber\\
 =&-u \pderiv{p_*\phi'}{x}-v \pderiv{p_*\phi'}{y}-\dot{\sigma}\pderiv{p_*\phi'}{\sigma}-\phi'p_*\left(\pderiv{u}{x}+\pderiv{v}{y}+\pderiv{\dot{\sigma}}{\sigma}\right)-\pderiv{p_*}{t}\pderiv{(\sigma\phi')}{\sigma}=\nonumber\\
