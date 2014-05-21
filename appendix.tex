@@ -1,56 +1,57 @@
 \appendix
-\chapter{Вывод системы прогностических уравнений модели ReMeDy}
+\chapter{Основные аппроксимации и вывод системы прогностических уравнений модели ReMeDy \citep{MirandaPhD}}
 \label{app:A}
+Начнем с рассмотрения системы уравнений гидродинамики в невязком адиабатическом приближении в $z$-системе координат на $f$-плоскости:
 
-Firstly, consider the inviscid, adiabatic set of equations of fluid dynamics in z coordinates, for an f-plane:
-\begin{subequations}\label{eqn:0}
+\begin{subequations}\label{eq:eqn0}
 \begin{align}
-\frac{Du}{Dt}&=-\frac{1}{\rho}\pderiv{p}{x}+fv \label{eqn:1}\\
-\frac{Dv}{Dt}&=-\frac{1}{\rho}\pderiv{p}{y}-fu \label{eqn:2}\\
-\frac{Dw}{Dt}&=-\frac{1}{\rho}\pderiv{p}{z}-g \label{eqn:3}\\
-\pderiv{u}{x}+\pderiv{v}{x}+\pderiv{w}{x}&=-\frac{Dln\rho}{Dt} \label{eqn:4}\\
+\frac{Du}{Dt}&=-\frac{1}{\rho}\pderiv{p}{x}+fv \label{eq:eqn1}\\
+\frac{Dv}{Dt}&=-\frac{1}{\rho}\pderiv{p}{y}-fu \label{eq:eqn2}\\
+\frac{Dw}{Dt}&=-\frac{1}{\rho}\pderiv{p}{z}-g \label{eq:eqn3}\\
+\pderiv{u}{x}+\pderiv{v}{x}+\pderiv{w}{x}&=-\frac{Dln\rho}{Dt} \label{eq:eqn4}\\
 \frac{Dln\theta}{Dt}&=0 \\
-\intertext{plus the gas law}
-p&=R\rho T \label{eqn:5}\\
-\intertext{and the definition of potential temperature}
-\theta&=T\left(\frac{p_0}{p}\right)^\kappa. \label{eqn:6}
+\intertext{\text{и уравнение состояния}}
+p&=R\rho T, \label{eq:eqn5}\\
+\intertext{\text{а потенциальная температура определяется как}}
+\theta&=T\left(\frac{p_0}{p}\right)^\kappa. \label{eq:eqn6}
 \end{align}
 \end{subequations}
-Then, consider the vertical coordinate
+
+Далее в качестве вертикальной координаты примем
 \begin{equation}
-\sigma=\frac{p-p_{top}}{p_*}; p_*=p_{surf}-p_{top}
+\sigma=\frac{p-p_{top}}{p_*}, p_*=p_{surf}-p_{top},
 \end{equation}
-which is the usual $\sigma$ coordinate if $p_{top}=0$. In what follows $p_{top}$ will be taken as constant. derivatives in the $\sigma$ coordinate system relate to derivatives in the $z$-system by relation as
+которая превращается в традиционную $\sigma$-координату при $p_{top}=0$. В последующих выкладках примем, что $p_{top}$ есть константа. Производные в $\sigma$-системе коодинат соотносятся с производными в $z$-координатах следующим образом:
 \begin{align}
 \begin{split}
 \left(\frac{\partial}{\partial x}\right)_z&=\left(\frac{\partial}{\partial x}\right)_{\sigma}-\left(\frac{\partial z}{\partial x}\right)_{\sigma} \left(\frac{\partial \sigma}{\partial z}\right) \left(\frac{\partial}{\partial \sigma}\right) \\
 \frac{\partial}{\partial z}&=\frac{\partial\sigma}{\partial z}\frac{\partial}{\partial \sigma}
-\end{split} \label{z2sigma:1}
+\end{split} \label{eq:z2sigma1}
 \end{align}
 
-Miller and White derived their equation set in p coordinates, following a series of transformations, with scaling given by an appropriate reference state, leading to an expansion of the equations in terms of a power series of a convenient parameter, which is small for a range of atmospheric conditions.
-Their procedure can be summarized in the following steps: \\
-1) write the equations for the new coordinate system making $Dw/Dt$ appear as a parameter, except in the transformed vertical momentum equation; \\
-2) define a reference state in hydrostatic equilibrium, which is a function of pressure only; \\
-3) scale the equations according to that reference state and eliminate higher order terms.
+Миллер и Уайт \citep{MillerWhite1986} получили систему уравнений в $p$-системе координат, применив ряд преобразований относительно связанного с фоновым состоянием параметром атмосферы, который имеет малые значения для широкого спектра атмосферных условий. Процедура может быть представлена в три этапа: \\
+\begin{enumerate}
+\item представление уравнений в новой системе координат, при это полагая $Dw/Dt$ параметром во всех уравнениях, кроме уравнения для вертикального ускорения;
+\item определение фонового состояния как состояния гидростатического равновесия, в котором переменные зависят только от давления;
+\item упрощение уравнений относительно фонового состояния с избавлением от членов высоких порядков.
+\end{enumerate}
 
-The reference state will then be defined as: $$\phi_s(p), T_s(p)~or~\theta_s(p)$$
-with
+То есть фоновое состояние атмосферы определяется через переменные $$\phi_s(p), T_s(p)~or~\theta_s(p),$$
+при чем
 \begin{equation}
 \frac{\partial\phi_s}{\partial\sigma}=\frac{\partial\phi_s}{\partial p}\frac{\partial p}{\partial\sigma}=-\frac{RT_s}{p}p_*
 \end{equation}
-Then, following the notation of Miller and White, we introduce the quantity
+Далее, следуя \citep{MillerWhite1986}, введем параметр
 \begin{equation}
-\epsilon=\frac{1}{g}\frac{Dw}{Dt}
+\epsilon=\frac{1}{g}\frac{Dw}{Dt},
 \end{equation}
-which is the ratio of the vertical acceleration to gravitational force. 
-Hence, the vertical momentum equation (\ref{eqn:3}) can be solved for $1/\rho$, obtaining:
+который является отношением вертикального ускорения к ускорению силы гравитации. Тогда уравнение для вертикальной скорости \eqref{eq:eqn3} может быть решено относительно $1/\rho$:
 \begin{equation}
-\frac{1}{\rho}=-\frac{g(1+\epsilon)}{\frac{\partial p}{\partial z}} \label{vol}
+\frac{1}{\rho}=-\frac{g(1+\epsilon)}{\frac{\partial p}{\partial z}} \label{eq:vol}
 \end{equation}
 
-Substituting this into horizontal momentum equations (\ref{eqn:1}) and (\ref{eqn:2}) and using (\ref{z2sigma:1}) leads to:
-\begin{subequations}\label{hmom:0}
+Подставляя последнее выражение в уравнения для горизонтальных компонент скорости \eqref{eq:eqn1} и \eqref{eq:eqn2} и используя \eqref{z2sigma:1}, получаем:
+\begin{subequations}\label{eq:hmom0}
 \begin{align}
 \frac{Du}{Dt}&=\frac{g(1+\epsilon)}{\pderiv{p}{\sigma}\pderiv{\sigma}{z}}
 \left[
@@ -72,19 +73,19 @@ Substituting this into horizontal momentum equations (\ref{eqn:1}) and (\ref{eqn
 \frac{Du}{Dt}&=(1+\epsilon)
 \left[
 -\left(\pderiv{\phi'}{x}\right)_\sigma+\pderiv{\phi'}{\sigma}\frac{\sigma}{p_*}\left(\pderiv{p_*}{x}\right)_\sigma
-\right]+fv\label{hmom:1}
+\right]+fv\label{eq:hmom1}
 \intertext{and in a similar way:} \nonumber\\
 \frac{Dv}{Dt}&=(1+\epsilon)
 \left[
 -\left(\frac{\partial\phi'}{\partial y}\right)_\sigma+\frac{\partial\phi'}{\partial\sigma}\frac{\sigma}{p_*}\left(\frac{\partial p_*}{\partial y}\right)_\sigma
-\right]-fu\label{hmom:2}
+\right]-fu\label{eq:hmom2}
 \end{align}
 \end{subequations}
 
-Consider now the vertical momentum equation (\ref{eqn:3}). This can be written as:
+Рассмотрим уравнение для вертикальной скорости \eqref{eq:eqn3}. Оно может быть переписано в виде
 \begin{align}
 g(1+\epsilon)&=-\frac{1}{\rho}\pderiv{p}{z} \\
-\intertext{or} \nonumber\\
+\intertext{\text{или}} \nonumber\\
 g(1+\epsilon)&=-\frac{1}{\rho}p_*\pderiv{\sigma}{z} \nonumber\\
 (1+\epsilon)\left(\pderiv{\phi'}{\sigma}+\pderiv{\phi_s}{\sigma}\right)&=-\frac{1}{\rho}p_*\nonumber\\
 \intertext{or, using the hydrostatic relation for the reference state:} \nonumber \\
@@ -92,75 +93,62 @@ g(1+\epsilon)&=-\frac{1}{\rho}p_*\pderiv{\sigma}{z} \nonumber\\
 -\epsilon p_*\frac{1}{\rho_s}-p_*\frac{1}{\rho_s}+(1+\epsilon)\pderiv{\phi'}{\sigma}&=-\frac{1}{\rho}p_*\nonumber\\
 \epsilon p_*\frac{1}{\rho_s}&=(1+\epsilon)\pderiv{\phi'}{\sigma}+p_*\left(\frac{1}{\rho}-\frac{1}{\rho_s}\right)
 \end{align}
-Substituting $\epsilon$ by its definition but only in the first term, leads to:
+Подставим $\epsilon$, согласно его определению, но только в первое слагаемое:
 \begin{align}
 \frac{Dw}{Dt}&=(1+\epsilon)\pderiv{\phi'}{\sigma}\frac{g\rho_s}{p_*}-g\frac{(\rho-\rho_s)}{\rho}\nonumber\\
-\intertext{and, with $\frac{\rho'}{\rho_s+\rho'}\approx\frac{\rho'}{\rho_s}$} \nonumber\\
-\frac{Dw}{Dt}&=(1+\epsilon)\frac{g\rho_s}{p_*}\pderiv{\phi'}{\sigma}-g\frac{\rho'}{\rho_s} \label{dwdt_rho}
+\intertext{\text{и при} $\frac{\rho'}{\rho_s+\rho'}\approx\frac{\rho'}{\rho_s}$} \nonumber\\
+\frac{Dw}{Dt}&=(1+\epsilon)\frac{g\rho_s}{p_*}\pderiv{\phi'}{\sigma}-g\frac{\rho'}{\rho_s} \label{eq:dwdt_rho}
 \end{align}
-The last term on the right-hand side of the equation (\ref{dwdt_rho}) can be further approximated by $g\frac{\theta'}{\theta_s}$.
+Последнее слагаемое в правой части ур. \eqref{eq:dwdt_rho} может быть далее представлено как $g\frac{\theta'}{\theta_s}$.
 
-On the other hand, the vertical acceleration can be written as:
+С другой стороны, по определению вертикальное ускорение выглядит как
 \begin{align}
 \frac{Dw}{Dt}&=\frac{1}{g}\frac{D}{Dt}\left(\frac{D\phi'}{Dt}+\frac{D\phi_s}{Dt}\right)
 \end{align}
-and
+и
 \begin{align}
-\frac{D\phi_s}{Dt}&=\pderiv{\phi_s}{p}\frac{D\phi_s}{Dt}=-\frac{RT_s}{p}\omega=-\frac{\omega}{\rho_s}
+\frac{D\phi_s}{Dt}&=\pderiv{\phi_s}{p}\frac{D\phi_s}{Dt}=-\frac{RT_s}{p}\omega=-\frac{\omega}{\rho_s}.
 \end{align}
-Using the latter we define:
+Используя последнее, запишем:
 \begin{align}
 \tilde{w}&=\frac{1}{g}\frac{D\phi_s}{Dt}=-\frac{\omega}{\rho_sg} \\
-\tilde{w}&=-\frac{1}{\rho_sg}\frac{Dp}{Dt}=-\frac{1}{S}(\dot{\sigma}+\frac{\sigma}{p_*}\dot{p_*})
+\tilde{w}&=-\frac{1}{\rho_sg}\frac{Dp}{Dt}=-\frac{1}{S}(\dot{\sigma}+\frac{\sigma}{p_*}\dot{p_*}),
 \end{align}
-and the vertical momentum equation can be written as:
+а окончательный вид уравнения для вертикальной скорости имеет вид
 \begin{equation}
-\frac{D}{Dt}\left[\frac{1}{g}\frac{D\phi'}{Dt}+\tilde{w}\right]=(1+\epsilon)S\pderiv{\phi'}{\sigma}+g\frac{\theta'}{\theta_s}
+\frac{D}{Dt}\left[\frac{1}{g}\frac{D\phi'}{Dt}+\tilde{w}\right]=(1+\epsilon)S\pderiv{\phi'}{\sigma}+g\frac{\theta'}{\theta_s},
 \end{equation}
-where 
+где 
 \begin{equation}
-S=\frac{gp}{RT_sp_*}
+S=\frac{gp}{RT_sp_*}.
 \end{equation}
-Note that
+Заметим, что 
 \begin{equation}
--S\pderiv{}{\sigma}\approx\pderiv{}{z} \label{dz}
+-S\pderiv{}{\sigma}\approx\pderiv{}{z} \label{eq:dz}
 \end{equation}
 
-The transformation of the continuity equation is best done by starting from a continuity equation written for a generalized vertical coordinate.
-It can be derived using the common approach. Consider a control volume of fixed mass $\delta M$. Letting $\delta V=\delta x\delta y \delta z$ be the volume, we find that because $\delta M=\rho\delta V=\rho\delta x\delta y \delta z$ is conserved following the motion, we can write
-\begin{equation}
-\frac{D}{Dt}(\delta M)=\frac{D}{Dt}(\rho\delta V)=\delta V\frac{D\rho}{Dt}+\rho\frac{D(\delta V)}{Dt}
-\end{equation}
-Then introduce a transformation to a new vertical coordinate: $\delta V=\delta x\delta y \frac{\delta z}{\delta\eta}\delta\eta$ where $\eta$ is a generalized vertical coordinate. Hence, after dividing the previous equation by $\rho$ and then by $\delta V$,  the continuity equation can be rewritten in the following form:
-\begin{equation}
-\frac{Dln\rho}{Dt}+\frac{1}{\delta V}\left[\delta u\delta y\frac{\delta z}{\delta \eta}\delta\eta+\delta v\delta x \frac{\delta z}{\delta\eta}\delta\eta+\delta\dot{\eta}\delta x\delta y \frac{\delta z}{\delta \eta}+\frac{D}{Dt}\left(\frac{\delta z}{\delta\eta}\right)\delta x\delta y\delta \eta\right]=0
-\end{equation}
-therefore,
-\begin{equation}
-\lim_{\delta x, \delta y, \delta \eta \to 0}\left(\frac{1}{\delta V}\frac{D\delta V}{Dt}\right)=\pderiv{u}{x}+\pderiv{v}{y}+\pderiv{\dot{\eta}}{\eta}+\frac{D}{Dt}\left(ln\left(\pderiv{z}{\eta}\right)\right)
-\end{equation}
-and finally
+Преобразование уравнения неразрывности можно начать с рассмотрения уравнения, обобщенного на случай произвольной вертикальной координаты.
 \begin{equation}
 \frac{Dln\rho}{Dt}+\pderiv{u}{x}+\pderiv{v}{y}+\pderiv{\dot{\eta}}{\eta}+\frac{D}{Dt}\left(ln\left(\pderiv{z}{\eta}\right)\right)=0
 \end{equation}
-Applying the $\sigma$ as a vertical coordinate, we continue the derivation of the continuity equation in the model coordinates:
+Имея в качестве вертикальной координаты $\sigma$-координату, получим уравнение неразрывности в системе координат модели:
 \begin{equation}
 \frac{Dln\rho}{Dt}+\frac{D}{Dt}\left(ln\left(\pderiv{z}{\sigma}\right)\right)+\pderiv{u}{x}+\pderiv{v}{y}+\pderiv{\dot{\sigma}}{\sigma}=0
 \end{equation}
-Using again equation (\ref{vol}), rewritten as:
+Используя опять уравнение \eqref{eq:vol}, переписанное в виде
 \begin{equation}
-\frac{D}{Dt}\left(ln\left(\pderiv{z}{\sigma}\right)\right)=\frac{Dlnp_*}{dt}-\frac{Dln\rho}{Dt}-\frac{Dln(1+\epsilon)}{Dt}
+\frac{D}{Dt}\left(ln\left(\pderiv{z}{\sigma}\right)\right)=\frac{Dlnp_*}{dt}-\frac{Dln\rho}{Dt}-\frac{Dln(1+\epsilon)}{Dt},
 \end{equation}
-leads to:
+получаем
 \begin{equation}
-\frac{Dlnp_*}{Dt}+\pderiv{u}{x}+\pderiv{v}{y}+\pderiv{\dot{\sigma}}{\sigma}=\frac{Dln(1+\epsilon)}{Dt}
+\frac{Dlnp_*}{Dt}+\pderiv{u}{x}+\pderiv{v}{y}+\pderiv{\dot{\sigma}}{\sigma}=\frac{Dln(1+\epsilon)}{Dt}.
 \end{equation}
 
-The thermodynamic equation can be written as (firstly in pressure coordinates):
+Уравнение притока тепла может быть получено следующим образом. Сначала выпишем его в изобарических координатах:
 \begin{equation}
-\frac{D\theta}{Dt}=\frac{D\theta'}{Dt}+\frac{D\theta_s}{Dt}=\frac{D\theta'}{Dt}+\omega\pderiv{\theta_s}{p}=0
+\frac{D\theta}{Dt}=\frac{D\theta'}{Dt}+\frac{D\theta_s}{Dt}=\frac{D\theta'}{Dt}+\omega\pderiv{\theta_s}{p}=0.
 \end{equation}
-or, using the definition of $\tilde{w}$ and the properties of the reference state:
+Далее, используя определение $\tilde{w}$ и свойства фонового состояния, получаем:
 \begin{equation}
 \frac{D\theta'}{Dt}-S\tilde{w}\pderiv{\theta_s}{\sigma}=0
 \end{equation}
@@ -177,91 +165,8 @@ or, using the definition of $\tilde{w}$ and the properties of the reference stat
 %\frac{g}{\theta_s}\frac{D\theta'}{Dt}+N^2\tilde{w}=0.
 %\end{equation}
 
-The set of equations is now in a form appropriate for scaling. The model equations are simply obtained by neglecting all terms which include $\epsilon$ plus the first term in the vertical momentum equation $1/g\left(D^2\phi'/Dt^2\right)$. Miller and White justify this approximation with detailed scaling arguments, where the relevant parameter turns out to be the fractional change of the potential temperature over one scale height, and the approximation is valid if:
+Система уравнений записана теперь в форме, удобной для упрощения, которое производится просто путем отбрасывания всех слагаемых, в которые входит параметр $\epsilon$ и величину $1/g\left(D^2\phi'/Dt^2\right)$. Миллер и Уайт обосновывают это приближение путем разложения членов уравнений в степенные ряды от малого параметра $\alpha$, зависящего лишь от фонового состояния. После чего отбрасываются члены высокого порядка и выводится система уравнений, подходящая для численного интегрирования. Условие, при котором описанная аппроксимация верна, следующее:
 \begin{equation}
-\alpha=\frac{\Delta\theta_s}{\theta_s}=\frac{p_0}{\theta_s}\pderiv{\theta_s}{p}\ll1
+\alpha=\frac{\Delta\theta_s}{\theta_s}=\frac{p_0}{\theta_s}\pderiv{\theta_s}{p}\ll1,
 \end{equation}
-which is always the case for tropospheric meteorological applications.
-
-\chapter{Инициализация аномалии в виде модифицированного вихря Рэнкина}
-\label{app:B}
-\section{Initial perturbation}
-\subsection{Velocity field}
-The simulations are started by imposing an axis-symmetric vortex at the centre of the domain. The velocity field structure is defined in a form of a Rankine vortex, the same as in \cite{EmanuelRotunno89}, except for the amplitude. The tangential wind is given by
-\begin{subequations}\label{tanv:0}
-\begin{align}
-v&=V_{max}F(r)G(z) \label{tanv:1}\\
-\intertext{where $V_{max}$ is maximum tangential velocity,} \nonumber \\
-F(r)&=\frac{2r/r_{max}}{1+(r/r_{max})^2}, \label{tanv:2}\\
-G(z)&= 
-\begin{cases}
-      \left(1-\frac{z}{z_t}\right), & \text{for}\ z\leq z_t, \\
-      \frac{H}{z_t}\left(1-\frac{z}{H}\right)\left(\frac{z_t-z}{H-z_t}\right), & \text{for}\ z>z_t,
-\end{cases} \label{tanv:3}
-\end{align}
-\end{subequations}
-$r_{max}$ is the radius of maximum speed (RMS), $z_t$ is the decay level, where tangential wind is zero, $H$ is the height of the model top boundary. There is an option to make tangential velocity vanish at the outer boundary $r_{out}$ by multiplying the radial distribution of tangential velocity in (\ref{tanv:2}) by $cos(0.5\pi r/r_{out})$.
-
-\subsection{Surface pressure field}
-The gradient-wind balance is applied to create a perturbation in the surface pressure field:
-\begin{equation}
-\frac{v^2}{r}+fv=\frac{1}{\rho}\pderiv{p}{r}, \label{pgradwind}
-\end{equation}
-where $f$ is the Coriolis parameter.
-
-The previous equation can be easily solved with respect to pressure:
-\begin{align}
-\intrad dp&=\rho\intrad\frac{v^2}{r}dr+f\rho\intrad vdr= \nonumber\\
-&=\rho{V^2}_{max}G^2\intrad\frac{4(r/r_{max})^2}{(1+(r/r_{max})^2)^2}\frac{dr}{r}+f\rho V_{max}G\intrad\frac{2r/r_{max}}{1+(r/r_{max})^2}dr=\nonumber\\
-&=\rho{V^2}_{max}G^2\intrad\frac{2d(1+(r/r_{max})^2)}{(1+(r/r_{max})^2)^2}+r_{max}f\rho V_{max}G\intrad\frac{d(1+(r/r_{max})^2)}{1+(r/r_{max})^2}\label{p_int}
-\end{align}
-Since $G(z)=1$ at the surface, the indefinite integral is equal to
-\begin{align}
-p(r)=&-\frac{2\rho{V^2}_{max}}{1+(r/r_{max})^2}+r_{max}f\rho V_{max}ln(1+(r/r_{max})^2) \nonumber\\
-&-\left(-\frac{2\rho{V^2}_{max}}{1+(r_{out}/r_{max})^2}+r_{max}f\rho V_{max}ln(1+(r_{out}/r_{max})^2)\right). \label{p_r}
-\end{align}
-The second part of the right-hand side of \ref{p_r} is obviously a constant, and $p(r_{out})=0$ implying the decay of the pressure perturbation at a specific radius.
-
-\subsection{Geopotential field}
-To make the geopotential field consistent with the wind we use the same equation as for the surface pressure (\ref{pgradwind}), but for the geopotential:
-\begin{equation}
-\frac{v^2}{r}+fv=-\pderiv{\phi}{r} \label{phigradwind}
-\end{equation}
-Clearly, the integral form of this equation differs from the \ref{p_int} only by the $-\rho$ factor and by the $G(z)$-function that now depends on the vertical coordinate.
-
-\begin{equation}
-\phi(r,z)=\frac{2{V^2}_{max}G^2}{1+(r/r_{max})^2}-r_{max}fV_{max}Gln(1+(r/r_{max})^2)+const. \label{phi_r}
-\end{equation}
-The constant in the equation above can be obtained by the condition $phi(r\rightarrow r_{out},z)\rightarrow 0$ implying the decay of the geopoential perturbation at a specific radius.
-
-\subsection{Temperature field}
-The vortex has to satisfy the gradient wind balance with the potential temperature field. The analytical formula for the potential temperature perturbation can be obtained from the continuity equiation, the hydrostatic equation and the gradient-wind equation using the definition of potential temperature as $T=\theta\pi$, where $\pi=\left(\frac{p}{p_0}\right)^\kappa$ is the Exner function. In terms of Exner function the equations can be written as
-\begin{align}
-\rho=p_0\pi^{\frac{1}{\kappa}-1}/(R\theta),\label{cont} \\
-p_0\pderiv{\pi^{\frac{1}{\kappa}}}{z}=-\frac{gp_0}{R\theta}\pi^{\frac{1}{\kappa}-1} \nonumber\\
-\intertext{or}
-c_p\pderiv{\pi}{z}=-\frac{g}{\theta} \label{hydr} \\
-\intertext{and}
-p_0\pi^{\frac{1}{\kappa}-1}/(R\theta)C=\pderiv{p_0\pi^{\frac{1}{\kappa}}}{r}\nonumber\\
-\intertext{or}
-C/\theta=c_p\pderiv{\pi}{r} \label{gradwind_exn}
-\end{align}
-where $C=\frac{v^2}{r}+fv$ is the sum of centrifugal and Coriolis forces per unit mass.
-
-Taking $\pderiv{}{r}\left[(\ref{hydr})\right]$ and $\pderiv{}{z}\left[(\ref{gradwind_exn})\right]$ and eliminating the pressure we obtain the thermal wind equation
-\begin{equation}
-g\pderiv{ln\theta}{r}+C\pderiv{ln\theta}{z}-\pderiv{C}{z}=0. \label{thwind}
-\end{equation}
-
-Equation \ref{thwind} is a linear first-order partial differential equation for $ln\theta$. The characteristics of the equation satisfy
-\begin{equation}
-\frac{dr}{g}=\frac{dz}{C}\qquad\Leftrightarrow\qquad\frac{dz}{dr}=\frac{C}{g}. \label{char1}
-\end{equation}
-The characteristics are just the surfaces of equal pressure, because a small displacement $(dr,dz)$ along an isobaric surface satisfies $0=\pderiv{p}{z}dz+\pderiv{p}{r}dr$ \cite{Smith2006}. The temperature variation along a characteristic is governed by
-\begin{equation}
-\frac{dln\theta}{\pderiv{C}{z}}=\frac{dr}{g}\qquad\Leftrightarrow\qquad\frac{dln\theta}{dr}=\frac{1}{g}\pderiv{C}{z}. \label{char2}
-\end{equation}
-
-Given the vertical temperature profile, $\theta_{env}(z)$, Eqs. (\ref{char1}) and (\ref{char2}) can be integrated inwards along the isobars to obtain the balanced axisymmetric temperature and pressure distributions. In particular, Eq. (\ref{char1}) gives the height of the pressure surface that has the value $p(z)$, say, at radius $R$. 
-
-Since $\partial{C}/\partial{z}=(2v/r+f)(\partial{v}/\partial{z})$, it follows from (\ref{char2}) that for a barotropic vortex ($\partial{v}/\partial{z}=0$), $\theta$ is constant along an isobaric surface, i.e. $\theta=\theta(p)$, whereupon $\rho$ is a constant also. The Eq. (\ref{char2}) also shows that when the tangential speed decays with height ($\partial{v}/\partial{z}<0$) the potential temperature ($\theta$) decreases with radius, so the vortex will be warm cored.
+что всегда выполняется в тропосфере.
